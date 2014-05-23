@@ -1,6 +1,6 @@
 name := "play-sbt-tasks"
 
-version := "1.0.0"
+version := "1.0.1-SNAPSHOT"
 
 sbtPlugin := true
 
@@ -11,7 +11,7 @@ scalaBinaryVersion := "2.10"
 organization := "com.jaroop"
 
 libraryDependencies ++= Seq(
-  "com.typesafe.play"  %%   "play" % "2.2.1"
+  "com.typesafe.play"  %%   "play" % "2.3.0-RC2"
 )
 
 resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
