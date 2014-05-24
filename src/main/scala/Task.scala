@@ -4,13 +4,22 @@ import sbt._
 import Keys._
 import java.net.URLClassLoader
 import play.core.StaticApplication
+import play.api.Play
 
-/** An abstract `Runnable` class` that must implement a `run` function that returns `Unit`.
+/** An abstract `Runnable` class` that must implement an `execute` function that returns `Unit`.
 * @param arguments Arguments that can be passed to the task.
 */
 abstract class Task(arguments: String) extends Runnable {
 
-  val application = new StaticApplication(new java.io.File("."))
+	/** Abstract function for tasks to run inside of an ad-hoc Play application. */
+	def execute(): Unit
+
+	/** Run the task within a static Play application, and shut it down when finished. */
+	def run(): Unit = {
+		val application: StaticApplication = new StaticApplication(new java.io.File("."))
+
+	    try { this.execute() } finally { Play.stop() }
+	}
 
 }
 
@@ -36,6 +45,7 @@ object Task {
 		       		val task = taskClass.getConstructor(classOf[String]).newInstance(args.mkString(",")).asInstanceOf[Runnable]
 
 		            task.run()
+
 	        }
 	    }
   	}
