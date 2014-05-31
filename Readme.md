@@ -9,13 +9,13 @@ Add the following to project/plugins.sbt:
 ``` scala
 ***REMOVED***
 
-addSbtPlugin("com.jaroop" %% "play-sbt-tasks" % "1.0.1-SNAPSHOT")
+addSbtPlugin("com.jaroop" %% "play-sbt-tasks" % "1.0.1")
 ```
 
 and Build.scala, or build.sbt:
 
 ``` scala
-libraryDependencies += Defaults.sbtPluginExtra("com.jaroop" % "play-sbt-tasks" % "1.0.1-SNAPSHOT", "0.13", "2.10")
+libraryDependencies += Defaults.sbtPluginExtra("com.jaroop" % "play-sbt-tasks" % "1.0.1", "0.13", "2.11")
 ```
 
 Usage
