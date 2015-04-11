@@ -1,7 +1,7 @@
 
 lazy val commonSettings = Seq(
     organization := "com.jaroop",
-    version := "1.0.3-SNAPSHOT",
+    version := "1.0.3",
     resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/",
     publishMavenStyle := false,
     ***REMOVED***
