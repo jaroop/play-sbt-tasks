@@ -3,17 +3,7 @@ lazy val commonSettings = Seq(
     organization := "com.jaroop",
     version := "1.0.3",
     resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/",
-    publishMavenStyle := false,
-    ***REMOVED***
-                    ***REMOVED***
-      ***REMOVED***
-        ***REMOVED***
-            ***REMOVED***
-            ***REMOVED***
-            ***REMOVED***
-            ***REMOVED***
-        ***REMOVED***
-    }
+    publishMavenStyle := false
 )
 
 lazy val root = (project in file(".")).

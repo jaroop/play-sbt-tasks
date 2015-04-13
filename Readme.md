@@ -4,11 +4,9 @@ A very simple SBT plugin for creating tasks that require a Play application to r
 
 Installation:
 -------------
-Add the following to project/plugins.sbt:
+Play SBT tasks is available on maven central. Just add the following to project/plugins.sbt:
 
 ``` scala
-***REMOVED***
-
 addSbtPlugin("com.jaroop" %% "play-sbt-tasks-plugin" % "1.0.3")
 ```
 
