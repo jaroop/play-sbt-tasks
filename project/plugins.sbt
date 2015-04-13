@@ -1,3 +1,3 @@
-resolvers += "Era7 maven releases" at "http://releases.era7.com.s3.amazonaws.com"
+addSbtPlugin("org.xerial.sbt" % "sbt-sonatype" % "0.2.1")
 
-addSbtPlugin("ohnosequences" % "sbt-s3-resolver" % "0.8.0")
+addSbtPlugin("com.typesafe.sbt" % "sbt-pgp" % "0.8.3")
