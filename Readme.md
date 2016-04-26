@@ -7,13 +7,13 @@ Installation:
 Play SBT tasks is available on maven central. Just add the following to project/plugins.sbt:
 
 ``` scala
-addSbtPlugin("com.jaroop" %% "play-sbt-tasks-plugin" % "1.0.3")
+addSbtPlugin("com.jaroop" %% "play-sbt-tasks-plugin" % "1.0.4")
 ```
 
 and Build.scala, or build.sbt:
 
 ``` scala
-libraryDependencies += "com.jaroop" %% "play-sbt-tasks" % "1.0.3"
+libraryDependencies += "com.jaroop" %% "play-sbt-tasks" % "1.0.4"
 ```
 
 Usage
