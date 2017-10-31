@@ -2,7 +2,7 @@ import SonatypeKeys._
 
 lazy val commonSettings = Seq(
     organization := "com.jaroop",
-    version := "1.0.4",
+    version := "1.1.0",
     resolvers ++= Seq("snapshots", "releases").map(Resolver.sonatypeRepo),
     resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/",
     pomExtra := {
@@ -38,9 +38,9 @@ lazy val root = (project in file("."))
   .settings(commonSettings: _*)
   .settings(
     name := "play-sbt-tasks",
-    scalaVersion := "2.11.7",
-    crossScalaVersions := Seq("2.11.7"),
-    libraryDependencies += "com.typesafe.play" %% "play" % "2.4.6"
+    scalaVersion := "2.11.11",
+    crossScalaVersions := Seq("2.11.11"),
+    libraryDependencies += "com.typesafe.play" %% "play" % "2.6.6"
   )
 
 lazy val plugin = (project in file("plugin"))
