@@ -2,6 +2,7 @@ package com.jaroop.play.sbt
 
 import sbt._
 import Keys._
+import complete.DefaultParsers._
 import java.net.URLClassLoader
 
 object Task {
@@ -13,13 +14,13 @@ object Task {
      *  @return The sbt task to include in sbt settings for an application.
      */
     def register(name: String, className: String, description: String): Setting[InputTask[Unit]] = {
-        InputKey[Unit](name, description) <<= inputTask {
-            (argTask: TaskKey[Seq[String]]) =>
-                (argTask, compile in Compile, dependencyClasspath in Runtime) map { (args, compile, dependencies) =>
-                    val classLoader = new URLClassLoader(dependencies.map(_.data.toURI.toURL).toArray, null)
-                    val taskClass = classLoader.loadClass(className)
-                    val task = taskClass.getConstructor(classOf[String]).newInstance(args.mkString(",")).asInstanceOf[Runnable]
-                    task.run()
+        InputKey[Unit](name, description) := Def.inputTaskDyn {
+            Def.task {
+                val classLoader = new URLClassLoader(dependencyClasspath.value.map(_.data.toURI.toURL).toArray, null)
+                val taskClass = classLoader.loadClass(className)
+                val args = spaceDelimited("<arg>").parsed.mkString(",")
+                val task = taskClass.getConstructor(classOf[String]).newInstance(args).asInstanceOf[Runnable]
+                task.run()
             }
         }
     }
