@@ -3,6 +3,7 @@ lazy val commonSettings = Seq(
     version := "2.0.0",
     resolvers ++= Seq("snapshots", "releases").map(Resolver.sonatypeRepo),
     resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/",
+    publishTo := sonatypePublishTo.value,
     pomExtra := {
       <url>https://github.com/jaroop/play-sbt-tasks</url>
       <licenses>
