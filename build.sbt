@@ -2,8 +2,8 @@ lazy val commonSettings = Seq(
     organization := "com.jaroop",
     version := "2.0.0",
     resolvers ++= Seq("snapshots", "releases").map(Resolver.sonatypeRepo),
-    resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/",
-    publishTo := sonatypePublishTo.value,
+    resolvers += "Typesafe repository" at "https://repo.typesafe.com/typesafe/releases/",
+    publishTo := sonatypePublishToBundle.value,
     pomExtra := {
       <url>https://github.com/jaroop/play-sbt-tasks</url>
       <licenses>
@@ -33,12 +33,12 @@ lazy val commonSettings = Seq(
 )
 
 lazy val root = (project in file("."))
+  .enablePlugins(PlayScala)
   .settings(commonSettings: _*)
   .settings(
     name := "play-sbt-tasks",
-    scalaVersion := "2.12.8",
-    crossScalaVersions := Seq("2.11.12", "2.12.8"),
-    libraryDependencies += "com.typesafe.play" %% "play" % "2.6.+"
+    scalaVersion := "2.13.1",
+    crossScalaVersions := Seq("2.11.12", "2.12.8", "2.13.1")
   )
 
 lazy val plugin = (project in file("plugin"))
